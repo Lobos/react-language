@@ -1,0 +1,16 @@
+dist
+lib-cov
+coverage.html
+/coverage
+.DS_Store
+node_modules
+publish
+*.sock
+*.swp
+*.bat
+*.sh
+*.log
+.idea
+/components
+typings
+jsconfig.json
