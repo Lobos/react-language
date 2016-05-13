@@ -11,18 +11,28 @@ npm install react-language
 ```
 var ReactLanguage = require('react-language');
 
-// set currentLanguage, if currentLanguage not set, use window.navigator.language || window.navigator.userLanguage
-// setLanguage also store the language to localStorage, the broswer reopen the web page will getItem from localStorage before get from window.navigator 
+/* set currentLanguage, if currentLanguage not set, 
+ * use window.navigator.language || window.navigator.userLanguage
+ * setLanguage also store the language to localStorage, reopen the web page
+ * will getItem from localStorage before get from window.navigator 
+ */
+
 ReactLanguage.setLanguage('xxx');
 
-// create method return a ReactComponent, it must and only pass one argument.
-// if argument === true, this component will be the default component, if no other created component match currentLanguge, this content(children) will show. It has only one default component in a project.
+/* create method return a ReactComponent, it must and only pass one argument.
+ * if argument === true, this component will be the default component,
+ * if no other created component match currentLanguge, this content(children) will show.
+ * Ther is only one default component in a project.
+ */
+
 const En = ReactLanguage.create(true);
 
 // string argument, if argument === currentLanguage, the content(children) will show.
+
 const Ja = ReactLanguage.create('ja');
 
 // function argument, if return true, the content(children) will show. 
+
 const Cn = ReactLanguage.create(function (currentLanguage) {
     return currentLanguage.indexOf('zh-') === 0;
 });
@@ -37,10 +47,10 @@ const Cn = ReactLanguage.create(function (currentLanguage) {
 
 ======================================================
 rendered result:
-<div><div>Hello world.</div></div> // currentLanguage === 'en-US'
-<div><span>你好，世界</span></div> // currentLanguage === 'zh-CN'
-<div><span>こんにちは世界</span></div> // currentLanguage === 'ja'
-<div><div>Hello world.</div></div> // currentLanguage === 'other language'
+currentLanguage === 'en-US' => <div><div>Hello world.</div></div>
+currentLanguage === 'zh-CN' => <div><span>你好，世界</span></div>
+currentLanguage === 'ja' => <div><span>こんにちは世界</span></div>
+currentLanguage === 'other language' => <div><div>Hello world.</div></div>
 ```
 
 # props
