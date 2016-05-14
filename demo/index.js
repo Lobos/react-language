@@ -2,11 +2,11 @@ import * as ReactLanguage from '../src';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-var En = ReactLanguage.create(true);
 var Ja = ReactLanguage.create('ja');
 var Cn = ReactLanguage.create(function (lang) {
   return lang.toLowerCase().indexOf('zh-') === 0;
 });
+var En = ReactLanguage.create(true);
 
 var Demo = React.createClass({
   handleClick: function (lang) {
@@ -22,8 +22,8 @@ var Demo = React.createClass({
         <Ja>こんにちは世界</Ja>
 
         <div>
-          <a href="javascript:;" onClick={this.handleClick.bind(this, 'en-US')}>English</a>
-          <a href="javascript:;" onClick={this.handleClick.bind(this, 'zh-CN')}>中文</a>
+          <a href="javascript:;" onClick={this.handleClick.bind(this, 'en-us')}>English</a>
+          <a href="javascript:;" onClick={this.handleClick.bind(this, 'zh-cn')}>中文</a>
           <a href="javascript:;" onClick={this.handleClick.bind(this, 'ja')}>日本語</a>
           <a href="javascript:;" onClick={this.handleClick.bind(this, 'fr')}>Français</a>
         </div>

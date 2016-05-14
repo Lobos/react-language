@@ -14,7 +14,7 @@ export function getLanguage () {
     }
 
     if (!currentLanguage) {
-      currentLanguage = window.navigator.language || window.navigator.userLanguage;
+      currentLanguage = (window.navigator.language || window.navigator.userLanguage || '').toLowerCase();
     }
 
     checkLanguageList()
@@ -61,7 +61,7 @@ export function create (lang) {
     // if currentLanguage has no other matched Language, show default Language.
     detect = () => noMatchedLanguage;
   } else {
-    detect = memoize(typeof lang === 'function' ? lang : (l) => lang === l);
+    detect = memoize(typeof lang === 'function' ? lang : (l) => lang === l.toLowerCase());
     createdLanguageList.push(detect);
     checkLanguageList();
   }

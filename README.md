@@ -15,6 +15,7 @@ var ReactLanguage = require('react-language');
  * use window.navigator.language || window.navigator.userLanguage
  * setLanguage also store the language to localStorage, reopen the web page
  * will getItem from localStorage before get from window.navigator 
+ * notice: ReactLanguage converted navigator.language to lower case
  */
 ReactLanguage.setLanguage('xxx');
 
@@ -32,7 +33,8 @@ const Ja = ReactLanguage.create('ja');
 
 
 // function argument, if return true, the content(children) will show. 
-const Cn = ReactLanguage.create(function (currentLanguage) {
+const Cn = ReactLanguage.create(function (currentLanguage) { 
+    // notice: currentLanguage was converted to lower case
     return currentLanguage.indexOf('zh-') === 0;
 });
 
