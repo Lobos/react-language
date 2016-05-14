@@ -7,7 +7,7 @@ let currentLanguage;
 let createdLanguageList = [];
 let noMatchedLanguage = true;
 
-function getLanguage () {
+export function getLanguage () {
   if (!currentLanguage) {
     if (storage) {
       currentLanguage = storage.getItem(STORAGE_KEY);
